@@ -1,50 +1,50 @@
 class Flights:
     def __init__(self):
-        self._flightNo=0
-        self._destination=""
-        self._fuel=0.0
-        self._distance=0.0
+        self.__flightNo=0
+        self.__destination=""
+        self.__fuel=0.0
+        self.__distance=0.0
     def calfuel(self):
-        if self._distance<=1000:
-            self._fuel=500
-        elif self._distance>1000 and self._distance<=2000:
-            self._fuel=1100
+        if self.__distance<=1000:
+            self.__fuel=500
+        elif self.__distance>1000 and self.__distance<=2000:
+            self.__fuel=1100
         else:
-            self._fuel=2200
+            self.__fuel=2200
     def feedinfo(self,flightNo,destination,distance):
-        self._flightNo=flightNo
-        self._destination=destination
-        self._distance=distance
+        self.__flightNo=flightNo
+        self.__destination=destination
+        self.__distance=distance
     
     def show_info(self):
-        print("Flight Number:", self._flightNo)
-        print("Destination:", self._destination)
-        print("Distance:", self._distance, "miles")
-        print("Fuel Required:", self._fuel, "gallons")
+        print("Flight Number:", self.__flightNo)
+        print("Destination:", self.__destination)
+        print("Distance:", self.__distance, "miles")
+        print("Fuel Required:", self.__fuel, "gallons")
 
 
 class Batsman:
     def __init__(self):
-        self._bcode=0
-        self._bname=""
-        self._innings=0
-        self._notout=0
-        self._runs=0
-        self._batavg=0.0
+        self.__bcode=0
+        self.__bname=""
+        self.__innings=0
+        self.__notout=0
+        self.__runs=0
+        self.__batavg=0.0
     def calcavg(self):
         try:
-            self._batavg =self._runs/(self._innings-self._notout)
+            self.__batavg =self.__runs/(self.__innings-self.__notout)
         except ZeroDivisionError:
             pass
     def readdata(self,bcode:int,bname:str,innings:int,notout:int,runs:int):
-        self._bcode=bcode
-        self._bname=bname
-        self._innings=innings
-        self._notout=notout
-        self._runs=runs
+        self.__bcode=bcode
+        self.__bname=bname
+        self.__innings=innings
+        self.__notout=notout
+        self.__runs=runs
         self.calcavg()
     def __repr__(self):
-        return f'Code:{self._bcode} \n Name:{self._bname} \n Innings: {self._innings} \n Notouts: {self._notout} \n Runs: {self._runs} \n stored at {hex(id(self))}'
+        return f'Code:{self.__bcode}--{hex(id(self.__bcode))} \n Name:{self.__bname}--{hex(id(self.__bname))} \n Innings: {self.__innings}--{hex(id(self.__innings))} \n Notouts: {self.__notout}--{hex(id(self.__notout))} \n Runs: {self.__runs}--{hex(id(self.__runs))}'
 
 class Person:
     def __init__(self, name):
