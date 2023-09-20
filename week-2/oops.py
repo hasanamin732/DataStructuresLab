@@ -46,7 +46,34 @@ class Batsman:
     def __repr__(self):
         return f'Code:{self._bcode} \n Name:{self._bname} \n Innings: {self._innings} \n Notouts: {self._notout} \n Runs: {self._runs} \n stored at {hex(id(self))}'
 
+class Person:
+    def __init__(self, name):
+        self.name = name
+        self.last_call=None
+        self.last_stuff=None
 
+    def say(self, stuff):
+        self.last_stuff=stuff
+        self.last_call=self.say
+        return stuff
+
+    def ask(self, stuff):
+        self.last_stuff=stuff
+        self.last_call=self.ask
+        return self.say("Would you please " + stuff)
+
+    def greet(self):
+        self.last_call=self.greet
+        return self.say("Hello, my name is " + self.name)
+
+    def repeat(self):
+        if self.last_call is not None:
+            if self.last_stuff is not None:
+                return self.last_call(self.last_stuff)
+            else:
+                return self.last_call()
+        else:
+            return "No method called yet"
 
 
 def main():
@@ -58,4 +85,12 @@ def main():
     obj2=Batsman()
     obj2.readdata(2000,"John",10,5,500)
     print(obj2)
+    print("-------------------")
+    obj3=Person("Hasan")
+    print(obj3.say("Hello Hasan!"))
+    print(obj3.repeat())
+    print(obj3.greet())
+    print(obj3.repeat())
+    print(obj3.ask("move aside"))
+    print(obj3.repeat())
 main()
