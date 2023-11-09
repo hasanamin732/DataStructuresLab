@@ -1,6 +1,6 @@
 from LQueue import LQueue
 from Stack import Stack
-def palindrome_check(string):
+def palindrome_check(string:str):
     myQueue=LQueue(len(string))
     myStack=Stack()
     for i in string:
