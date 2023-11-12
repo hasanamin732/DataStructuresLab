@@ -17,7 +17,6 @@ def is_balanced(expression):
                 
     
     if not stack:
-        print("This expression is correct.")
         return True
     else:
         last_open, index = stack.pop()
