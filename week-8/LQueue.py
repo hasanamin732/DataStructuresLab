@@ -22,17 +22,27 @@ class LQueue:
         self.__nItems +=1
         print("inserted Item ", value, " in the queue. ")
     
-    def remove(self): #dequeue
+    def remove(self):  # dequeue
         if self.isEmpty():
-            print("queue underflow")
+            print("Queue underflow")
             return
 
         print("Deleting element from the queue...")
+
+        # Save the element to be removed
         front = self.queue[self.front]
-        self.queue[self.front] = None # help garbage collection
-        self.front += 1
-        self.__nItems-=1
+
+        # Shift all elements ahead by one place
+        for i in range(self.front, self.rear):
+            self.queue[i] = self.queue[i + 1]
+
+        # Set the last element to None and update rear
+        self.queue[self.rear] = None
+        self.rear -= 1
+
+        self.__nItems -= 1
         return front
+
     
     def peek(self):                    # Return frontmost item
       return None if self.isEmpty() else self.queue[self.front]

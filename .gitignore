@@ -6,3 +6,4 @@
 *.tiff
 *.svg
 *.rar
+__pycache__/
