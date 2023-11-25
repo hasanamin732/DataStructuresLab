@@ -22,3 +22,4 @@ def palindrome_check(string:str):
         
 
 print(palindrome_check("eMadammAdam"))
+print(palindrome_check("eMadammAdame"))

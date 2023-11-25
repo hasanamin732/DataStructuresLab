@@ -28,7 +28,8 @@ class SLL:
         for i in range(index):
             currnode = currnode.nextnode
         return currnode
-    
+    def getvalue(self,index):
+        return self.traverse_by_index(index).data
     def append(self, data):
         new_node = Node(data)
         last_node = self.traverse(None)
